@@ -2,24 +2,209 @@
 <html>
 
 <head>
-<title>Web Task 1 - CI/CD Project</title>
-<link rel="stylesheet" href="style.css">
+
+<title>DevOps CI/CD Project - web_task1</title>
+
+<style>
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    background: linear-gradient(135deg,#141e30,#243b55);
+    color: white;
+
+    text-align: center;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    width: 420px;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.4);
+}
+
+a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #66e0ff;
+}
+
+#date {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#time {
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.description {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.section {
+    margin-top: 25px;
+}
+
+.test-line {
+    margin-top: 15px;
+    color: #ffd166;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>CI/CD Deployment Project</h1>
+<div class="container">
 
-<p id="datetime"></p>
+<div class="card">
 
-<p>This project demonstrates CI/CD workflow with admin approval.</p>
+<!-- Date & Time -->
 
-<h2>Feature Added by User1</h2>
-<h3>CI/CD Auto Deployment Test</h3>
+<div id="date"></div>
 
-<p>This change was made in feature-user1 branch.</p>
+<div id="time"></div>
 
-<script src="script.js"></script>
+<!-- Project Description -->
+
+<div class="description">
+
+This project demonstrates the implementation of a 
+Continuous Integration and Continuous Deployment (CI/CD) 
+pipeline using GitHub Actions. The webpage is automatically 
+validated, scanned for security vulnerabilities, and deployed 
+using workflow automation. The project includes branch-based 
+development, pull request validation, and automated deployment 
+through GitHub Pages.
+
+</div>
+
+<!-- Pull Request Test Line -->
+
+<p class="test-line">
+✔ Testing Pull Request Workflow Completed
+</p>
+
+<!-- GitHub Repo -->
+
+<div class="section">
+
+🔗 GitHub Repository:
+
+<br><br>
+
+<a href="https://github.com/ayushjoseph03/web_task1" target="_blank">
+View Project Repository
+</a>
+
+</div>
+
+<!-- Concepts Used -->
+
+<div class="section">
+
+📘 Concepts Used:
+
+<br><br>
+
+<a href="https://docs.github.com/en/actions" target="_blank">
+GitHub Actions
+</a>
+
+<br>
+
+<a href="https://docs.github.com/en/pages" target="_blank">
+GitHub Pages
+</a>
+
+<br>
+
+<a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions" target="_blank">
+YAML Workflow Files
+</a>
+
+<br>
+
+<a href="https://git-scm.com/docs" target="_blank">
+Git Version Control
+</a>
+
+<br>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+HTML
+</a>
+
+<br>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+CSS Styling
+</a>
+
+<br>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+JavaScript
+</a>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+DevOps CI/CD Project | web_task1 | GitHub Pages Deployment
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function updateDateTime() {
+
+const now = new Date();
+
+document.getElementById("date").innerText =
+"Date: " + now.toDateString();
+
+document.getElementById("time").innerText =
+"Time: " + now.toLocaleTimeString();
+
+}
+
+setInterval(updateDateTime,1000);
+
+updateDateTime();
+
+</script>
 
 </body>
 
