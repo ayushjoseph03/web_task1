@@ -16,7 +16,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    # Step 2 — Display Files (Verification Step)
+    # Step 2 — Display Files
     - name: Display Repository Files
       run: |
         echo "Listing project files..."
@@ -29,7 +29,18 @@ jobs:
         scan-type: fs
         scan-ref: .
 
-    # Step 4 — Simulated Deployment Alert
+    # Step 4 — Security Alert Check
+    - name: Security Alert Check
+      run: |
+        echo "Running additional security checks..."
+
+        if ls *.exe 1> /dev/null 2>&1; then
+          echo "SECURITY ALERT: Executable file detected!"
+        else
+          echo "No suspicious executable files found."
+        fi
+
+    # Step 5 — Deployment Alert
     - name: Deployment Alert
       run: |
         echo "=================================="
@@ -38,6 +49,6 @@ jobs:
         echo "Project: web_task1"
         echo "=================================="
 
-    # Step 5 — Success Message
+    # Step 6 — Final Status
     - name: Final Status
       run: echo "CI/CD Workflow Completed Successfully"
