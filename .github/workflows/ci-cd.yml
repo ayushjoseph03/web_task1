@@ -12,17 +12,42 @@ jobs:
 
     steps:
 
+    # Step 1 — Checkout Repository
     - name: Checkout Repository
       uses: actions/checkout@v3
 
+    # Step 2 — Display Files (Debug Step)
     - name: Display Files
-      run: ls
+      run: ls -la
 
-    - name: Security Scan
+    # Step 3 — Run Security Scan
+    - name: Run Security Scan (Trivy)
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: fs
         scan-ref: .
 
-    - name: Deployment Message
+    # Step 4 — Deployment Message
+    - name: Deployment Status
       run: echo "Deployment Successful"
+
+    # Step 5 — Send Email Notification
+    - name: Send Email Notification
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: CI/CD Deployment Successful
+        body: |
+          Your CI/CD pipeline has completed successfully.
+          
+          Project: web_task1
+          Status: Deployment Successful
+          
+          Website URL:
+          https://ayushjoseph03.github.io/web_task1
+          
+        to: ${{ secrets.EMAIL }}
+        from: GitHub Actions
